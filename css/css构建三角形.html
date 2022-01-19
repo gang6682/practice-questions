@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 构建三角形</title>
+
+    <style>
+        body{
+            padding: 40px;
+            box-sizing: border-box;
+        }
+        ul{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        li{
+            list-style: none;
+            flex: 1;
+        }
+        .left {
+            width: 0;
+            height: 0;
+            border-top: 50px solid transparent;
+            border-right: 100px solid red;
+            border-bottom: 50px solid transparent;
+        }
+        .left-arrow{
+            width: 50px;
+            height: 50px;
+            border-left: 1px solid red;
+            border-top: 1px solid red;
+            transform: rotate(-45deg);
+        }
+        .top {
+            width: 0;
+            height: 0;
+            border-top: 100px solid red;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+        }
+        .top-arrow{
+            width: 50px;
+            height: 50px;
+            border-left: 1px solid red;
+            border-top: 1px solid red;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <h3>向左实心</h3>
+            <div class="left"></div>
+        </li>
+        <li>
+            <h3>向左箭头</h3>
+            <div class="left-arrow"></div>
+        </li>
+        <li>
+            <h3>向上实心</h3>
+            <div class="top"></div>
+        </li>
+        <li>
+            <h3>向上箭头</h3>
+            <div class="top-arrow"></div>
+        </li>
+    </ul>
+
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高度坍塌</title>
+    <style>
+        .father {
+            background-color: antiquewhite;
+            /* overflow: hidden; */
+        }
+        /* .father::after{
+            content: "";
+            clear: both;
+            display:block;
+            height:0;
+        } */
+
+        .son {
+            float: left;
+            height: 500px;
+            background-color: bisque;
+            width: 100%;
+            position: relative;
+        }
+        .test-position{
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
+
+        .clear {
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>父元素不写高度时，子元素写了浮动后，父元素会发生高度塌陷（造成父元素高度为 0）</h3>
+    <ul>
+        <p>解决方法: </p>
+        <li><span style="color:blue">强烈推荐</span> 父元素添加伪元素: content:"";display:block;clear:both;height:0;</li>
+        <li>父元素设置overflow:hidden;缺点:不能和position属性一起使用，会影藏超出内容</li>
+        <li>浮动元素下加空标签，添加clear:both;属性；缺点: 多添加了个标签，影响使用</li>
+        <li>父元素也设置浮动；缺点:会引出其他问题</li>
+        <li>使用BFC也可以解决</li>
+    </ul>
+    <div class="father">
+        我是父元素
+        <div class="son">我是子元素
+            <div class="test-position">我是用来测试position的
+                <div>001</div>
+                <div>002</div>
+                <div>003</div>
+                <div>004</div>
+                <div>005</div>
+                <div>006</div>
+                <div>007</div>
+                <div>008</div>
+                <div>009</div>
+                <div>010</div>
+                <div>011</div>
+                <div>012</div>
+                <div>013</div>
+                <div>014</div>
+                <div>015</div>
+                <div>016</div>
+                <div>017</div>
+                <div>018</div>
+                <div>019</div>
+                <div>020</div>
+                <div>021</div>
+                <div>022</div>
+                <div>023</div>
+                <div>024</div>
+                <div>025</div>
+                <div>026</div>
+                <div>027</div>
+                <div>028</div>
+                <div>029</div>
+                <div>030</div>
+                <div>031</div>
+                <div>032</div>
+                <div>033</div>
+                <div>034</div>
+                <div>035</div>
+                <div>036</div>
+                <div>037</div>
+                <div>038</div>
+                <div>039</div>
+                <div>040</div>
+                <div>041</div>
+                <div>042</div>
+                <div>043</div>
+                <div>044</div>
+                <div>045</div>
+                <div>046</div>
+                <div>047</div>
+                <div>048</div>
+                <div>049</div>
+                <div>050</div>
+            </div>
+        </div>
+        <!-- <div class="clear"></div> -->
+    </div>
+    <div>我是后续元素</div>
+</body>
+
+</html>

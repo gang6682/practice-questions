@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BFC(块级格式化上下文)(block formatting context) IFC(行级)(inline)</title>
+    <style>
+        .test{
+            background-color: antiquewhite;
+            display: block;
+        }
+        .float{
+            float: left;
+        }
+        .bottom{
+            margin-bottom: 20px;
+            background-color: antiquewhite;
+        }
+        .top{
+            margin-top: 10px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <p>独立的一个渲染区域</p>
+    <p>块级 display:block|table|list-item</p>
+    <p>行级 display:inline|inline-block|inline-table</p>
+
+    <h3>BFC默认规则</h3>
+    <ol>
+        <li>默认，内部块元素从上到下放置，独占一行</li>
+        <li>渲染区域相互隔离，及外部不影响内部，内部不影响外部，特殊方式除外</li>
+        <li>margin bottom和top 会出现合并现象</li>
+        <li>浮动元素不会对BFC的区域造成影响</li>
+    </ol>
+
+    <h3>形成条件</h3>
+    <ol>
+        <li>float的值不为none</li>
+        <li>position的值不为static或relative</li>
+        <li>overflow不为visible</li>
+        <li>display为flex|inline-flex|inline-block|table-cell|table-caption</li>
+    </ol>
+
+    <h3>解决的问题</h3>
+    <ol>
+        <li>垂直方向margin合并 是要合并的margin-top的元素用BFC盒子包裹</li>
+        <li>垂直方向margin溢出
+            <ul>
+                <p>解决方法:</p>
+                <li>将父元素设置成BFC</li>
+                <li>父元素添加上边框，添加透明色，设置盒模型</li>
+                <li>将margin-top换成padding-top</li>
+                <li>父元素内添加一个table标签，即添加一个BFC</li>
+                <li>父元素添加伪元素::before{ content:""; display:table; }</li>
+            </ul>
+        </li>
+        <li>自适应两栏 左侧定宽+浮动，右侧overflow:hidden</li>
+        <li>防止高度塌陷</li>
+    </ol>
+
+    <div class="test">
+        测试位置
+    </div>
+    <div class="float">
+        浮动元素
+    </div>
+
+
+    <div class="bottom">测试margin-bottom合并问题</div>
+    <div>
+        <p></p>
+        <div class="top">测试margin-top合并问题</div>
+    </div>
+</body>
+
+</html>

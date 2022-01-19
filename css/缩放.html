@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>缩放</title>
+    <style>
+        .size{
+            display: inline-block;
+            -webkit-transform: scale(0.5);
+            -webkit-transform-origin: left top;
+            margin: 0;
+        }
+        .size-12{
+            font-size: 12px;
+            margin: 0;
+        }
+        .hr{
+            height: 1px;
+            background-color: red;
+        }
+        .scale{
+            transform: scaleY(0.5);
+            transform-origin: 50% 100%;
+        }
+    </style>
+</head>
+<body>
+    <h3>文字小于12px</h3>
+    <p>使用scale(属性)，只能缩放块或行内块元素</p>
+    <pre>
+        display: inline-block; // scale 只能缩放块或行内块元素
+        -webkit-transform: scale(0.5); // 缩放属性
+        -webkit-transform-origin: left top; // 缩放起始点，默认中心
+    </pre>
+
+    <h3>0.5px的线</h3>
+    <pre>
+        height: 1px;
+        transform: scaleY(0.5);
+        transform-origin: 50% 100%;
+        background-color: red;
+    </pre>
+    <p>或者使用svg设置</p>
+
+    我是缩放的
+    <div class="hr scale"></div>
+    我没缩放
+    <div class="hr"></div>
+
+
+    <p class="size">我的字小</p>
+    <p class="size-12">我为12px的字</p>
+</body>
+</html>
