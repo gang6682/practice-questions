@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function f1() {
+            var sum = 0;
+
+            function f2() {
+                sum++;
+                return f2
+            }
+            f2.valueOf = function () {
+                console.log("调用了 f2 的 valueOf方法");
+                return sum
+            }
+            f2.toString = function () {
+                console.log("调用了 f2 的 toString方法");
+                return sum + ""
+            }
+            return f2
+        }
+        console.log(+f1()); // f2.valueOf
+        console.log(+f1()()); // f2.valueOf
+        console.log(+f1()()()); // f2.valueOf
+        console.log("" + f1()); // f2.valueOf
+        console.log(f1() + ""); // f2.valueOf
+        console.log(f1()); // f2.toString
+
+        var a = 10;
+
+        function fun() {
+            var a = 100;
+            a++;
+            console.log(a);
+        }
+        fun();
+        console.log(a);
+    </script>
+</body>
+
+</html>
